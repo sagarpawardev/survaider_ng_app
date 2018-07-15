@@ -1,25 +1,22 @@
 import { Component } from '@angular/core';
-import { SexdistService } from './sexdist.service'; 
+import { SexdistService } from '../sexdist.service'; 
 import { Chart } from 'chart.js';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: [
-  	'./app.component.css',
-  	'./app.component.scss',
-  ]
+  selector: 'app-sexgraph',
+  templateUrl: './sexgraph.component.html',
+  styleUrls: ['./sexgraph.component.css']
 })
-export class AppComponent {
+export class SexgraphComponent {
 
-	chart =  [];
+  chart =  [];
 
   	constructor(private _sexdist : SexdistService){
 
   	}
 
   	ngOnInit(){
-	  	/*this._sexdist.getData().subscribe(
+	  	this._sexdist.getData().subscribe(
 	  			res =>{
 	  				console.log(res);
 
@@ -39,7 +36,7 @@ export class AppComponent {
 					          data: temp_mcount
 					        }, {
 					          label: "Number of Females",
-					          backgroundColor: "#8e5ea2",
+					          backgroundColor: "#F06292",
 					          data: temp_fcount
 					        }
 					      ]
@@ -51,9 +48,10 @@ export class AppComponent {
 					      }
 					    }
 					});
+					
 	  			}
-	  		)*/
+	  		)
   	}
 
-  	
 }
+

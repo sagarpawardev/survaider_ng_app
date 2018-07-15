@@ -1,0 +1,79 @@
+<table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp" id="myTable">
+  <thead>
+    <tr>
+      <th class="mdl-data-table__cell--non-numeric">Age</th>
+      <th>Female Count</th>
+      <th>Fnlwgts</th>
+      <th>Education</th>
+      <th>Education count</th>
+      <th>Marital Status</th>
+      <th>Occupation</th>
+      <th>Relationship</th>
+      <th>Race</th>
+      <th>Sex</th>
+      <th>Capital Gain</th>
+      <th>Capital Loss</th>
+      <th>Hours per Week</th>
+      <th>Native Country</th>
+      <th>Salary</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th><input type="text" id="myAge" (keyup)="filter('myAge', 0)" placeholder="Filter" ></th>
+      <th><input type="text" id="myFcnt" (keyup)="filter('myFcnt', 1)" placeholder="Filter" ></th>
+      <th><input type="text" id="myFnlwgts" (keyup)="filter('myFnlwgts', 2)" placeholder="Filter" ></th>
+      <th><input type="text" id="myEdu" (keyup)="filter('myEdu', 3)" placeholder="Filter" ></th>
+      <th><input type="text" id="myEduCnt" (keyup)="filter('myEduCnt', 4)" placeholder="Filter" ></th>
+      <th><input type="text" id="myMarStat" (keyup)="filter('myMarStat', 5)" placeholder="Filter" ></th>
+      <th><input type="text" id="myOccup" (keyup)="filter('myOccup', 6)" placeholder="Filter" ></th>
+      <th><input type="text" id="myRel" (keyup)="filter('myRel', 7)" placeholder="Filter" ></th>
+      <th><input type="text" id="myRace" (keyup)="filter('myRace', 8)" placeholder="Filter" ></th>
+      <th><input type="text" id="mySex" (keyup)="filter('mySex', 9)" placeholder="Filter" ></th>
+      <th><input type="text" id="myCapGain" (keyup)="filter('myCapGain', 10)" placeholder="Filter" ></th>
+      <th><input type="text" id="myCapLoss" (keyup)="filter('myCapLoss', 11)" placeholder="Filter" ></th>
+      <th><input type="text" id="myHrs" (keyup)="filter('myHrs', 12)" placeholder="Filter" ></th>
+      <th><input type="text" id="myCntry" (keyup)="filter('myCntry', 13)" placeholder="Filter" ></th>
+      <th><input type="text" id="mySal" (keyup)="filter('mySal', 14)" placeholder="Filter" ></th>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr *ngFor="let country of countries; let i = index" >
+      <td class="mdl-data-table__cell--non-numeric">{{ ages[i] }}</td>
+      <td>{{ fcount[i] }}</td>
+      <td>{{ fnlwgts[i] }}</td>
+      <td>{{ educations[i] }}</td>
+      <td>{{ education_nums[i] }}</td>
+      <td>{{ marital_statuses[i] }}</td>
+      <td>{{ occupations[i] }}</td>
+      <td>{{ relationships[i] }}</td>
+      <td>{{ races[i] }}</td>
+      <td>{{ sexes[i] }}</td>
+      <td>{{ capital_gains[i] }}</td>
+      <td>{{ capital_losses[i] }}</td>
+      <td>{{ hours_per_weeks[i] }}</td>
+      <td>{{ countries[i] }}</td>
+      <td>{{ salaries[i] }}</td>
+    </tr>
+  </tbody>
+
+  <script>
+	function myFunction() {
+	  var input, filter, table, tr, td, i;
+	  input = document.getElementById("myInput");
+	  filter = input.value.toUpperCase();
+	  table = document.getElementById("myTable");
+	  tr = table.getElementsByTagName("tr");
+	  for (i = 0; i < tr.length; i++) {
+	    td = tr[i].getElementsByTagName("td")[0];
+	    if (td) {
+	      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+	        tr[i].style.display = "";
+	      } else {
+	        tr[i].style.display = "none";
+	      }
+	    }       
+	  }
+	}
+	</script>
+</table>
